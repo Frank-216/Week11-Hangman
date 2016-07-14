@@ -1,12 +1,15 @@
 //Your game.js file will randomly select a word for the play
 
-var wordBank = ['red','yellow','blue','green','orange'];
 
-var solution = function(wordBank){
-	// Choose a random variable from word bank 
-	rand = wordBank[Math.floor(Math.random() * wordBank.length)];
-	return rand;
-}
+function Solution(){
+	var wordBank = ['red','yellow','blue','green','orange'];
+	// Choose a random variable from word bank
+	var word = wordBank[Math.floor(Math.random() * wordBank.length)];
+	return word;
+	}
 
-// return a random work 
-console.log(solution(wordBank));
+
+// return a random word
+Solution();
+
+module.exports = Solution;
