@@ -3,9 +3,15 @@
 
 // add game file 
 var game = require('./game.js');
+// add word file 
+var word = require('./word.js');
+// array of 
 var wordBank = ['red','yellow','blue','green','orange'];
 
 // call Game to get a random word
-var word =  game();
+var callGame =  game();
+
+// var callWord = word();
+
 
 
