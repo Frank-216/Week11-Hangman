@@ -13,6 +13,5 @@ function Solution(){
 
 
 // return a random word
-Solution();
 // export as solution
 module.exports = Solution;
