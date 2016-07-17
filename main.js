@@ -6,7 +6,7 @@ var inquirer = require('inquirer');
 var game  =  require('./game.js');
 // var game = require('./game.js');
 // add word file 
-var word = require('./word.js');
+var Word = require('./word.js');
 // add letter file
 var Letter = require('./letter.js');
 // array answers
@@ -45,27 +45,15 @@ function displayGusses(){
 	for(var i = 0; i < guessList.length; i++){
 		string = string + guessList[i] +", ";
 	}
+	console.log("");
 	console.log('Letters Guessed: ' + string );
+	console.log("");
 	console.log(counter + " guesses remaining");
+	console.log("");
 }
 // getBlank.displaySpaces();
 // console.log(getBlank);
-var PromptQuestion = function(){
-	inquirer.prompt([
-		{type:'input',
-		 message: "",
-		 name:'guess',
-		 // validate: function(value){
-			// 			if(isNaN(value) == false){
-			// 				return true;
-			// 			}else{
-			// 				return false;
-			// 			}
-			// 		}
-	}]).then(function (answers){
-		console.log(answer);
-	})
-};
+
 var getLetter = function(){
 	inquirer.prompt([{
 		type:'input',
@@ -79,13 +67,21 @@ var getLetter = function(){
 						}
 					}
 	}]).then(function(answers){
-		// as guess list to answers
-			guessList.push(answers.letter);
+		
+			// create a variable to hold the answer
+			var guess = answers.letter;
+			// add the guess to the guestList holder
+			guessList.push(guess);
+			// display guest list under guess 
 			displayGusses(guessList);
+
 			if(counter > 0){
-				counter--;
 				// recalls get letter until time runs off 
-				
+				var checkGuess = new Word(guess, answer);
+				console.log(checkGuess);
+				// recall get letter to restart the question 
+				counter--;
+
 				getLetter();
 			}else{
 				console.log("Game Over: The correct answer is " + answer);
@@ -94,12 +90,16 @@ var getLetter = function(){
 }
 
 // Run Game 
+console.log("");
+console.log("");
 console.log("Welcome to Hangman!");
 console.log("===========================================");
+console.log('The game will begin soon.  You have 8 tries to get the correct answer.  Good luck!')
 
+// call the display spaces function 
 spaces.displaySpaces();
 displayAnswerSpaces(spaces.display);
-
+console.log("");
 
 getLetter();
 

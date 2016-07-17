@@ -24,8 +24,7 @@ var guessCheck = function(userGuess, answer){
 	storage.push(userGuess);
 }
 
-guessCheck(process.argv[2], 'red');
 
-console.log(storage);
+// console.log(storage);
 
 module.exports = guessCheck;
