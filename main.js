@@ -24,13 +24,19 @@ var guess;
 // get random word
 //
 var counter = 8;
+var answerLength = 0;
+console.log(answerLength);
 
 
 var spaces = new Letter(answer, guessList, guess);
 // get the space image 
 
 
-
+function switchDisplay(array, guess, answer){
+	var position = answer.indexOf(guess);
+	array[position] = guess;
+	return array;
+}
 
 
 function displayAnswerSpaces(array){
@@ -48,8 +54,7 @@ function displayGusses(){
 	console.log("");
 	console.log('Letters Guessed: ' + string );
 	console.log("");
-	console.log(counter + " guesses remaining");
-	console.log("");
+	
 }
 // getBlank.displaySpaces();
 // console.log(getBlank);
@@ -66,29 +71,45 @@ var getLetter = function(){
 							return false;
 						}
 					}
-	}]).then(function(answers){
-		
-			// create a variable to hold the answer
-			var guess = answers.letter;
-			// add the guess to the guestList holder
-			guessList.push(guess);
-			// display guest list under guess 
-			displayGusses(guessList);
-
-			if(counter > 0){
-				// recalls get letter until time runs off 
-				var checkGuess = new Word(guess, answer, guessList);
-				checkGuess.check();
-				// recall get letter to restart the question 
-				console.log(checkGuess);
-				counter--;
-
-				getLetter();
+	}]).then(function(answers){		
+		if(answer.length === answerLength){
+				console.log("You won! Play again soon!")
 			}else{
-				console.log("Game Over: The correct answer is " + answer);
-			}
+					// create a variable to hold the answer
+					var guess = answers.letter;
+					// add the guess to the guestList holder
+					guessList.push(guess);
+					// display guest list under guess 
+					displayGusses(guessList);
+					//display spaces 
+					
+					console.log("");
+					// recalls get letter until time runs off 
+					if(counter > 0){
+						// recalls get letter until time runs off 
+						var checkGuess = new Word(guess, answer, guessList);
+						//
+						// displayAnswerSpaces(spaces.display);
+						checkGuess.check();
+						// recall get letter to restart the question 
+						if(checkGuess.guessStatus === true){
+							switchDisplay(spaces.display, guess ,answer);
+							displayAnswerSpaces(spaces.display);
+							console.log("");
+
+							console.log(counter + " guesses remaining");
+							answerLength++;
+
+						}else{
+							counter--;
+						}
+							getLetter();	
+				}else{
+					console.log("Game Over: The correct answer is " + answer);
+				}
+			}// close else statement 
 	})
-}
+};
 
 // Run Game 
 console.log("");

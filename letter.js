@@ -25,20 +25,21 @@ var Spaces = function(answer,guess, guessList){
 
 	};
 	this.adjustDisplay = function(){
-		var position = answer.indexOf(this.guess);
+		var position = this.answer.indexOf(this.guess);
 		
+		console.log("position");
 		console.log(position);
 		this.display[position] = this.guess;
-		// this.display[position]= answer;
-		// console.log(this.display);
+		this.display[position]= answer;
+		console.log(this.display);
 	}
 }	
 
-// var word = new Spaces('red','r','r');
-// console.log(word);
-// word.displaySpaces();
-// word.adjustDisplay("r");
-
-
+var word = new Spaces('red','r','r');
+console.log(word);
+word.displaySpaces();
+word.adjustDisplay();
+var red = "red";
+console.log(red.indexOf('e'));
 
 module.exports = Spaces;

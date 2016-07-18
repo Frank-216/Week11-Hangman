@@ -29,8 +29,8 @@ var Guesscheck = function(userGuess, answer, guessList){
 					}
 		}
 	}
-// var array = ['s'];
-// var check = new Guesscheck('r','red', array);
+var array = ['s'];
+var check = new Guesscheck('l','red', array);
 // array.push("s");
 // var secondCheck = new Guesscheck('s','red',array);
 // check.check();
@@ -38,6 +38,6 @@ var Guesscheck = function(userGuess, answer, guessList){
 // secondCheck.check();
 
 // check.check();
-// console.log(check);
+console.log(check);
 // check.check();
 module.exports = Guesscheck;
