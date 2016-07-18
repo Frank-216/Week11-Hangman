@@ -20,7 +20,7 @@ var guess;
 // call Game to get a random word
  var answer =  game();
  // variable to hold list
- var guessList =[]
+ var guessList =[];
 // get random word
 //
 var counter = 8;
@@ -77,9 +77,10 @@ var getLetter = function(){
 
 			if(counter > 0){
 				// recalls get letter until time runs off 
-				var checkGuess = new Word(guess, answer);
-				console.log(checkGuess);
+				var checkGuess = new Word(guess, answer, guessList);
+				checkGuess.check();
 				// recall get letter to restart the question 
+				console.log(checkGuess);
 				counter--;
 
 				getLetter();
