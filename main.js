@@ -26,11 +26,11 @@ var guess;
 var counter = 8;
 var answerLength = 0;
 console.log(answerLength);
-
+console.log(guess);
 
 var spaces = new Letter(answer, guessList, guess);
 // get the space image 
-
+console.log(spaces);
 
 function switchDisplay(array, guess, answer){
 	var position = answer.indexOf(guess);
@@ -78,36 +78,56 @@ var getLetter = function(){
 					// create a variable to hold the answer
 					var guess = answers.letter;
 					// add the guess to the guestList holder
-					guessList.push(guess);
+					console.log('Guess List');
+					console.log(guessList);
 					// display guest list under guess 
 					displayGusses(guessList);
 					//display spaces 
-					
 					console.log("");
 					// recalls get letter until time runs off 
 					if(counter > 0){
 						// recalls get letter until time runs off 
+						console.log(guess + " "+ answer + " "+ guessList);
 						var checkGuess = new Word(guess, answer, guessList);
-						//
+						console.log(checkGuess);
+
 						// displayAnswerSpaces(spaces.display);
 						checkGuess.check();
 						// recall get letter to restart the question 
 						if(checkGuess.guessStatus === true){
+							// push item to guess list 
+							guessList.push(guess);
+							// display guessList 
+							displayGusses(guessList);
+							// call function switch display to switch the correct item 
 							switchDisplay(spaces.display, guess ,answer);
+							//display the correct answers
 							displayAnswerSpaces(spaces.display);
 							console.log("");
-
+							// display remaing guesses
 							console.log(counter + " guesses remaining");
+							// increase the length of answer
 							answerLength++;
 
 						}else{
+							// push guess to guess list
+							guessList.push(guess);
+							// display guesses list
+							displayGusses(guessList);
+							// display guess answers 
+							displayAnswerSpaces(spaces.display);
+							// decreate counter 
 							counter--;
 						}
+						// recall get letter to restart the function as long as their are guesses remaining 
 							getLetter();	
 				}else{
+					// display answer spaces 
+					displayAnswerSpaces(spaces.display);
+					// display the game ending answer 
 					console.log("Game Over: The correct answer is " + answer);
 				}
-			}// close else statement 
+			}// close else statement
 	})
 };
 
@@ -120,8 +140,9 @@ console.log('The game will begin soon.  You have 8 tries to get the correct answ
 
 // call the display spaces function 
 spaces.displaySpaces();
+// display spaces 
 displayAnswerSpaces(spaces.display);
 console.log("");
-
+// call get letter to start the game 
 getLetter();
 

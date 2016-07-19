@@ -5,7 +5,7 @@
 // answer is the correc answer 
 // alreadyGuessed is an array of the guesses already made 
 // you need to pass in the word 
-console.log(process.argv);
+// console.log(process.argv);
 
 var Guesscheck = function(userGuess, answer, guessList){
 		this.userGuess = userGuess;
@@ -14,6 +14,8 @@ var Guesscheck = function(userGuess, answer, guessList){
 		this.guessStatus = false;
 		this.check = function(){
 			// check if the guess is in the answer 
+			var icon = this.guessList.indexOf(this.userGuess);
+			console.log(icon);
 			if(this.guessList.indexOf(this.userGuess) === -1){
 				//is the guess in the user guess 
 
@@ -22,22 +24,23 @@ var Guesscheck = function(userGuess, answer, guessList){
 					this.guessStatus = true;
 				}else{
 					console.log('Your guess is incorrect! '+ this.userGuess + ' is not in the word.')
-				}
+					this.guessStatus = false;
+			}
 			}else{
 					console.log('You already guessed: '+ this.userGuess + ' . Try again!');
 					this.guessStatus =	true;
 					}
 		}
 	}
-var array = ['s'];
-var check = new Guesscheck('l','red', array);
-// array.push("s");
-// var secondCheck = new Guesscheck('s','red',array);
-// check.check();
-// console.log(secondCheck);
-// secondCheck.check();
+// var array = ['l'];
+// var check = new Guesscheck('l','red', array);
+// // array.push("s");
+// // var secondCheck = new Guesscheck('s','red',array);
+// // check.check();
+// // console.log(secondCheck);
+// // secondCheck.check();
 
 // check.check();
-console.log(check);
+// console.log(check);
 // check.check();
 module.exports = Guesscheck;

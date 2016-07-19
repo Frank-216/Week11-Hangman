@@ -22,16 +22,24 @@ var Spaces = function(answer,guess, guessList){
 		for(var i = 0; i < answer.length; i++){
 		this.display.push("_");
 		};
+		var string = "";
+		for(var i = 0; i < this.guessList.length; i++){
+			string = string + this.guessList[i] +", ";
+		}
+		console.log("");
+		console.log('Letters Guessed: ' + string );
+		console.log("");
 
 	};
 	this.adjustDisplay = function(){
 		var position = this.answer.indexOf(this.guess);
-		
-		console.log("position");
-		console.log(position);
+		console.log("display");
+		console.log(this.display);
+		console.log(this.guessList);
 		this.display[position] = this.guess;
 		this.display[position]= answer;
 		console.log(this.display);
+		console.log("does this work");
 	}
 }	
 
