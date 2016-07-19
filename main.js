@@ -10,7 +10,7 @@ var Word = require('./word.js');
 // add letter file
 var Letter = require('./letter.js');
 // array answers
-var wordBank = ['red','yellow','blue','green','orange'];
+var wordBank = ['red','gray','blue','pink','orange','ruby','sparkles','parks'];
 
 
 // create storage varables 
