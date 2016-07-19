@@ -13,7 +13,6 @@
 
 var Spaces = function(answer,guess, guessList){
 	this.answer = answer;
-	console.log(this.answer);
 	this.guessList = guessList;
 	this.guessList = guess;
 	this.display = [];
@@ -43,11 +42,11 @@ var Spaces = function(answer,guess, guessList){
 	}
 }	
 
-var word = new Spaces('red','r','r');
-console.log(word);
-word.displaySpaces();
-word.adjustDisplay();
-var red = "red";
-console.log(red.indexOf('e'));
+// var word = new Spaces('red','r','r');
+// console.log(word);
+// word.displaySpaces();
+// word.adjustDisplay();
+// var red = "red";
+// // console.log(red.indexOf('e'));
 
 module.exports = Spaces;

@@ -7,7 +7,7 @@ function Solution(){
 	// Choose a random variable from word bank
 	var word = wordBank[Math.floor(Math.random() * wordBank.length)];
 	// return the choosen word
-	console.log(word);
+	// console.log(word);
 	return word;
 	}
 

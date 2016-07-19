@@ -15,7 +15,7 @@ var Guesscheck = function(userGuess, answer, guessList){
 		this.check = function(){
 			// check if the guess is in the answer 
 			var icon = this.guessList.indexOf(this.userGuess);
-			console.log(icon);
+			// console.log(icon);
 			if(this.guessList.indexOf(this.userGuess) === -1){
 				//is the guess in the user guess 
 
